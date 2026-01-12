@@ -16,7 +16,10 @@ body{
     display:flex;*/     
 }
 
-#app, body, div, ul, nav, header, footer, a, li, label, p, h2{
+#app, body, div, ul, nav, header, footer, a, li, ul, label, p, h2, h1, form{
     margin:0;
     padding:0;
 } 
+#app{
+    background-image: url("./src//components/IMAGES/Alice In Chains - Black Gives Way To Black.jpg");
+}

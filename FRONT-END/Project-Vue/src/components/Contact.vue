@@ -45,7 +45,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;  
-    padding: 30px 0; 
+    padding: 30px 0;  
     container-name: form;
     container-type: inline-size;
 
@@ -62,6 +62,14 @@
     width: 100%; 
     display: grid;
     margin-bottom: 30px;
+    background-image: radial-gradient(#44a,#47a);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 50px #000e;
+}
+
+.form__input-container label{
+    color: #000;
 }
 
 .form__input-container :is(input,textarea){
@@ -84,19 +92,27 @@
 
 .form__input-container input[type="submit"]{
     padding: 12px;
-    background-color: #18233f; /* o #483 */
+    background-color: #18233f;
     color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form__input-container input[type="submit"]:hover{
+    box-shadow: 0 0 15px #26a; 
+    background-color: #d15959cc;
+    color: #000;
 }
 
 .form__title{
     font-size: 2.4rem;
+    color: #fff;
 }
 
 
 
 /* --------CONTACT QUERIES -------*/
 
-@container form (min-width: 56.25rem){
+@container form (min-width: 45.25rem){
     .form__form{
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
@@ -105,10 +121,10 @@
         "message message"
         "button button";
         gap: 12px;
-        background-image: radial-gradient(#18233f06,#18233f33);
+        background-image: radial-gradient(#44a,#47a);
         padding: 30px;
         border-radius: 12px;
-        box-shadow: 0px 0px 30px #0006;
+        box-shadow: 0px 0px 50px #000e;
     }
 
     .form__input-container:first-child{

@@ -10,24 +10,23 @@
         <nav class="header__nav">
             <ul class="header__nav-menu">
                 <li class="header__nav-item">
-                    <router-link :to = "{name: 'Home'}"> Home</router-link>
-                </li>
-                <!-- <li class="header__nav-item">
-                    <router-link :to = "{name: 'BeginnersCards'}">Beginners</router-link> 
-                </li>
-                <li class="header__nav-item">
-                    <router-link :to = "{name: 'IntermediumCards'}">Intermedium</router-link>
+                    <router-link :to = "{name: 'Home'}"> Home  </router-link>
                 </li>    
-                <li class="header__nav-item">
-                    <router-link :to = "{name: 'AdvancedCards'}">Advanced</router-link>
-                </li> -->
-                 <!--    <ul class="header__nav-submenu">
-                        <li class= "header__nav-submenu-item"> <a href="#">Beginner</a> </li>
-                        <li class= "header__nav-submenu-item"> <a href="#">Intermedium</a> </li>
-                        <li class= "header__nav-submenu-item"> <a href="#">Advanced</a> </li>
-                    </ul> -->
-                
-                <li class="header__nav-item">
+                <li class="header__nav-item header__nav__submenu" >
+                    <a class = "header__nav-submenu-button"> Curses </a>
+                    <ul class="header__nav-submenu-container">
+                        <li class= "header__nav-submenu-item"> 
+                            <router-link :to = "{name: 'BeginnersCards'}">Beginners</router-link>  
+                        </li>
+                        <li class= "header__nav-submenu-item"> 
+                            <router-link :to = "{name: 'IntermediumCards'}">Intermedium</router-link>
+                        </li>
+                        <li class= "header__nav-submenu-item"> 
+                            <router-link :to = "{name: 'AdvancedCards'}">Advanced</router-link>
+                        </li>
+                    </ul> 
+                </li>               
+                <li class="header__nav-item" >
                     <router-link :to = "{name: 'Login'}">Log In</router-link>
                 </li>
                 <li class="header__nav-item">
@@ -55,7 +54,7 @@
     align-items: center;
     position: relative;
     z-index: 10;
-    text-align:center;
+    text-align: center;
     font-size: 20px;
     color: #26e;
     margin: 0;
@@ -76,7 +75,7 @@
 
 .header__nav{
     display: none; 
-    background-color: #101632f4;;
+    background-color: #101632aa;
     position: absolute;  
     height: 100vh;
     width: 100vw;
@@ -95,19 +94,7 @@
     height: 40vh;
     margin: auto;
     justify-content: space-evenly;
-
 }
-
-/* #cursos-desplegable:hover{
-    .header__nav-submenu{
-        display:block;
-    }
-}
-
-.header__nav-submenu{
-    display:none;
-    list-style: none;
-} */
 
 .header__logo-container{
     margin: 0;
@@ -123,26 +110,113 @@
 .header__nav-item{    
     list-style:none;
     padding: 8px; 
-    background-color: #d8d8d855;
     border-radius: 12px;
-
 }
 
 .header__nav-item a{       
     text-decoration: none;
-    color: #00ff70;
+    color: #26d;
 }
 
 .header__nav-item :is(:hover,:active){
     text-decoration: underline;
 }
 
+/* Contenedor del item con submenú */
+.header__nav__submenu {
+    position: relative;
+}
+
+/* Submenú oculto por defecto */
+.header__nav-submenu-container {
+    position: absolute;
+    top: 100%;
+    left: 0;   
+    display: none;
+    flex-direction: column;
+    list-style: none;
+
+    padding: 8px 0;
+    border-radius: 10px;
+    max-width: 180px;
+    z-index: 20;
+
+}
+
+/* Mostrar submenú al hover */
+.header__nav__submenu:hover .header__nav-submenu-container {
+    display: flex;
+}
+
+
+/* Botón "Curses" */
+.header__nav-submenu-button {
+    cursor: pointer;
+    color: #26e;
+    display: inline-block;
+}
+
+/* Efecto hover del botón */
+.header__nav-submenu-button:hover {
+    text-decoration: underline;
+}
+
+/* Items del submenú */
+.header__nav-submenu-item {
+    padding-left: 15px;
+}
+
+/* Links del submenú */
+.header__nav-submenu-item a {
+    color: #9ab7ff;
+    font-size: 0.9em;
+}
+
+.button{
+    position:relative;
+
+    width: 30%;
+    padding: 10px 40px;
+    color: #fff;
+    background-color:transparent;   
+    letter-spacing: 3px; 
+    margin :auto;
+    margin-bottom: 20px;
+    z-index: 10;
+    
+
+    border: 1px solid #44e; 
+    border-radius: 6px;  
+    overflow: hidden;
+}
+
+.button::before{
+    content: '';
+    background-color:  #d15959;
+    display: block;
+    height: 300%;
+    width: 140%;
+    position:absolute;
+    z-index: -1;
+    margin-top: 30%;
+    transition: top .6s, left .6s;
+    border-radius: 50%;
+    top: 100%;
+    left: 30%;
+} 
+.button:hover::before{
+    top:-35%;
+    left: -20%;
+    margin-top: -10%;
+}
+
+
 
 
 /* ------- HEADER QUERIES -----------*/
 @media screen and (min-width: 740px){
     .header{
-        padding: 20px 0;
+        padding: 10px 0;
         animation: header-movement both;
         animation-timeline: scroll();
         position: sticky;
@@ -181,13 +255,10 @@
 @keyframes header-movement {
     from{
         margin: 0;
-        padding: 5px 0; 
         background-color: #101632f4;      
     }
     to{
-        padding: 0;
         background-color: #101632dd;
-        color: #fff;
     }
 }
 

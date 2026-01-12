@@ -2,6 +2,7 @@
   <Profile></Profile>
   <Portafolio></Portafolio>
   <Contact></Contact> 
+  <Footer></Footer>
 
 </template>
 
@@ -9,7 +10,8 @@
 
 import Profile from '@/components/Profile.vue'
 import Portafolio from '@/components/Portafolio.vue'
-import Contact from '@/components/Contact.vue' 
+import Contact from '@/components/Contact.vue'
+import Footer from '@/components/Footer.vue' 
 
 
 

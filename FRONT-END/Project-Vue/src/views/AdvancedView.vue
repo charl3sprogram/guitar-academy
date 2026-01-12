@@ -28,6 +28,7 @@
 
 .classes__title{
     text-align: center;
+    color: #fff;
 }
 
 .classes__category-container{

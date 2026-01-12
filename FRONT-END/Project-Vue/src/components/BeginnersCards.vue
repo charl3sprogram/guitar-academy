@@ -15,7 +15,6 @@
 </script>
 
 <style scoped>
-
 .classes__category__box{
     border-radius: 8px;
     background-color: #10233f; 
@@ -51,9 +50,9 @@
 
 .classes__category-button::before{
     content: '';
-    background-color: #44e;
+    background-color:  #d15959;
     display: block;
-    height: 200%;
+    height: 300%;
     width: 140%;
     position:absolute;
     z-index: -1;

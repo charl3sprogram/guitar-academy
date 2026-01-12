@@ -1,9 +1,10 @@
 <template>
-    <!--  FOOTER -->
+    <!-- FOOTER SECTION -->
     <footer>
-        <p> 2025 Carlos A. Puyalena Placeres | all rights reserved </p>
-        <p> follow me in Instragram:  </p>
-    </footer> 
+        Creator: <strong> Charles Puyalena </strong> <br>
+        Follow me on instagram: <strong> @carwinchester</strong>
+    </footer>
+
 </template>
 
 <script setup>
@@ -12,22 +13,15 @@
 </script>
 
 
-<style>
+<style scoped>
+    footer{
+        padding: 60px;
+        text-align: center;
+        background-color: #18233f;
+        color: #fffd;
+        font-size: 22px;
+    }
 
-/* FOOTER */
-footer{
-    position: absolute;
-    box-sizing: border-box;   
-    bottom: 0;
-    z-index: 20;
-    padding: 15px;
-    font-size: 15px;
-    background-color: #111e;
-    color: #fff;  
-    width: 100vw;
-    box-shadow: 0 0 15px #111;  
-    text-shadow: 0 1px #545;
-} 
 
 
 </style>
