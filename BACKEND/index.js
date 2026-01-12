@@ -16,8 +16,8 @@ app.get("/test-db", async(req, res) =>{
     res.json(result.rows);
 })
 
-app.get('/', (req, res) =>{
-    /* EL res.send PUEDE SER UN STRING, UN OBJETO,UN HTML, ES VERSATIL*/
+/* app.get('/', (req, res) =>{
+    EL res.send PUEDE SER UN STRING, UN OBJETO,UN HTML, ES VERSATIL
     res.send('<h1> This is home page </h1>');
 });
 
@@ -31,11 +31,11 @@ app.get('/r/:subreddit/:postID', (req, res) =>{
     res.send(`<h1> Viendo el ID: ${postID} en el ${subreddit} subreddit </h1>`);
 }); 
 
-/* TO GET A QUERY */
+TO GET A QUERY 
 app.get('/search', (req, res) =>{
     const {q} = req.query;
     res.send(`<h1> search results for: ${q} </h1>`);
-});
+}); */
 
 app.use(cors());
 app.use (express.urlencoded({ extended: true})); 
@@ -45,25 +45,20 @@ app.use (express.json());
 app.post ('/register', async (req, res) =>{
     const {name, email, password} = req.body;
 
-    try{
-        // ------ VERIFY EXISTING FILE
-        const userExist = await pool.query("SELECT id FROM usuarios WHERE email= $1",[email]);
-        if (userExist.rows.length > 0){
-            return res.status(400).json({message: 'Usuario ya existe'});
-        }
-
-        // ------ ENCRIPT PASSWORD   
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // ------- INSERT USER
-        const newUser = await pool.query('INSERT INTO usuarios (name, email, password) VALUES ($1, $2, $3) RETURNING id, email',[name, email, hashedPassword]);
-
-        // ------ ANWSER
-        res.status(201).json({ message: 'User Register Succesfully', user: newUser.rows[0]});
-    }catch (error){
-        console.error(error);
-        res.status(500).json({ message: 'Error on register'});
+    // ------ VERIFY EXISTING FILE
+    const userExist = await pool.query("SELECT id FROM usuarios WHERE email= $1",[email]);
+    if (userExist.rows.length > 0){
+        return res.status(400).json({message: 'Usuario ya existe'});
     }
+
+    // ------ ENCRIPT PASSWORD   
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // ------- INSERT USER
+    const newUser = await pool.query('INSERT INTO usuarios (name, email, password) VALUES ($1, $2, $3) RETURNING id, email',[name, email, hashedPassword]);
+
+    // ------ ANWSER
+    return res.status(201).json({ message: 'User Register Succesfully', user: newUser.rows[0]});
 });
 
 /* ---------- LOGIN ---------*/
@@ -82,7 +77,7 @@ app.post ('/login', async (req, res) =>{
     if (!isValid){
         return res.status(401).json({ success: false, message: 'Password Incorrect'});
     }
-    res.json({message: 'Login exitoso', userID: user.id});
+    res.json({message: 'Login exitoso, Welcome', userID: user.id});
 });
 
 /* EL USE SE USA AL FINAL PARA TODOS LOS PATH QUE NO EXISTEN, ENGLOBA TODAS LAS PETICIONES*/
