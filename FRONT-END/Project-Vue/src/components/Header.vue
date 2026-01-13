@@ -25,12 +25,18 @@
                             <router-link :to = "{name: 'AdvancedCards'}">Advanced</router-link>
                         </li>
                     </ul> 
-                </li>               
-                <li class="header__nav-item" >
-                    <router-link :to = "{name: 'Login'}">Log In</router-link>
-                </li>
+                </li>      
                 <li class="header__nav-item">
                     <router-link :to = "{name: 'Register'}">Register</router-link>
+                </li>         
+                <li class="header__nav-item" v-if = "!isLogged">
+                    <router-link :to = "{name: 'Login'}">Log In</router-link>
+                </li>
+                <li class="header__nav-item" v-if = "isLogged">
+                    <router-link :to = "{name: 'Login'}"  @click = "logout">Log Out</router-link>
+                </li>
+                <li class="header__nav-item" v-if = "isLogged">
+                    <router-link :to = "{name: 'Login'}"> Profile</router-link>
                 </li>
             </ul>
         </nav>
@@ -39,6 +45,17 @@
 </template>
 
 <script setup>
+    import {computed} from 'vue'
+
+    const isLogged = computed(() =>{
+        return !!localStorage.getItem('token');
+    })
+
+    function logout (){
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        location.reload();
+    }
 
 
 
@@ -48,7 +65,7 @@
 
 /*----------- HEADER SECTION ----------------*/
 .header{
-    background-color: #101632f4;
+    background-color: rgba(15, 25, 50, 1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +92,7 @@
 
 .header__nav{
     display: none; 
-    background-color: #101632aa;
+    background-color: rgba(15, 25, 50, 1);
     position: absolute;  
     height: 100vh;
     width: 100vw;
@@ -115,7 +132,7 @@
 
 .header__nav-item a{       
     text-decoration: none;
-    color: #26d;
+    color: rgb(127,255,212);
 }
 
 .header__nav-item :is(:hover,:active){
@@ -172,44 +189,6 @@
     font-size: 0.9em;
 }
 
-.button{
-    position:relative;
-
-    width: 30%;
-    padding: 10px 40px;
-    color: #fff;
-    background-color:transparent;   
-    letter-spacing: 3px; 
-    margin :auto;
-    margin-bottom: 20px;
-    z-index: 10;
-    
-
-    border: 1px solid #44e; 
-    border-radius: 6px;  
-    overflow: hidden;
-}
-
-.button::before{
-    content: '';
-    background-color:  #d15959;
-    display: block;
-    height: 300%;
-    width: 140%;
-    position:absolute;
-    z-index: -1;
-    margin-top: 30%;
-    transition: top .6s, left .6s;
-    border-radius: 50%;
-    top: 100%;
-    left: 30%;
-} 
-.button:hover::before{
-    top:-35%;
-    left: -20%;
-    margin-top: -10%;
-}
-
 
 
 
@@ -255,10 +234,12 @@
 @keyframes header-movement {
     from{
         margin: 0;
-        background-color: #101632f4;      
+        background-color: rgb(15, 25, 50);   
+        box-shadow: 0 0 10px  rgb(15, 25, 50); 
     }
     to{
-        background-color: #101632dd;
+        background-color: rgba(15, 25, 50);
+        box-shadow: 0 0 10px rgba(15, 25, 50);
     }
 }
 

@@ -95,20 +95,20 @@
 }
 .register-form h1 {
   text-align: center;
-  color: #26d;
+  color: #d14050;
   margin-bottom: 10px;
 }
 
 .register-form .subtitle {
   text-align: center;
-  color: #26d; 
+  color: #d14050; 
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
 /* Labels */
 .register-form label {
-  color: #26d;
+  color: #d14050;
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;

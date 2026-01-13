@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import pool from "./db.js";
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken'
 
 const app = express();
 
@@ -77,7 +78,20 @@ app.post ('/login', async (req, res) =>{
     if (!isValid){
         return res.status(401).json({ success: false, message: 'Password Incorrect'});
     }
-    res.json({message: 'Login exitoso, Welcome', userID: user.id});
+    const token = jwt.sign(
+       {id: user.id, email: user.email},
+       process.env.JWT_SECRET,
+       {expiresIn: '1d'}
+    )
+
+    res.json({message: 'Login exitoso, Welcome', 
+        token,
+        user: {
+            id: user.id,
+            email : user.email,
+            name: user.name
+        }
+    });
 });
 
 /* EL USE SE USA AL FINAL PARA TODOS LOS PATH QUE NO EXISTEN, ENGLOBA TODAS LAS PETICIONES*/

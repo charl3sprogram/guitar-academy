@@ -10,41 +10,41 @@
             <div class="profile__data-container">
                 <div class="profile__data">
                     <div class="profile__description">
-                        <h1> QUIEN SOY YO?</h1>
-                        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores vel repudiandae adipisci dolorum eveniet. Hic voluptate nihil sunt cupiditate, adipisci quibusdam dolorem corporis iusto blanditiis quam deleniti quis itaque! Cupiditate!                           
+                        <h1> WELCOME TO YOUR GUITAR CURSES</h1>
+                        <p> From Steve vai, to Joe Satriani, to Dimebag Darrel and Eric Jhonson, each professor with is own metodology of guitar teaching, to show you how to play and master the guitar from the lowest to the highest levels. Sharing curses from teacher of all over the world, each one with a different approach of how to teach to master the instrument. Curses made from begginers to advanced guitar players. IF YOU WANNA LEARN, TRY SOME OF OUR CURSES.                       
                         </p>
                     </div>
 
                     <!-- SKILLS PART -->
                     <div class="profile__skills-container">
-                        <h2>SKILLS</h2>
+                        <h2>SKILLS LEVEL</h2>
                         <ul>
                             <li class="profile__skill">
                                 <div class="load-bar">
                                     <div class="load-bar__bar bar--60"> 60% </div>                                  
                                 </div>
-                                <span class="profile__skill-name">SQL</span>
+                                <span class="profile__skill-name">Harmonics</span>
                             </li>
 
                             <li class="profile__skill">
                                 <div class="load-bar">
                                     <div class="load-bar__bar bar--90"> 90% </div>                                  
                                 </div>
-                                <span class="profile__skill-name">HTML</span>
+                                <span class="profile__skill-name">Tappings</span>
                             </li>
 
                             <li class="profile__skill">
                                 <div class="load-bar">
                                     <div class="load-bar__bar bar--90"> 90% </div>                                  
                                 </div>
-                                <span class="profile__skill-name">CSS</span>
+                                <span class="profile__skill-name">Bendings</span>
                             </li>
 
                             <li class="profile__skill">
                                 <div class="load-bar">
                                     <div class="load-bar__bar bar--80"> 80% </div>                                 
                                 </div>
-                                <span class="profile__skill-name">JAVASCRIPT</span>
+                                <span class="profile__skill-name">Pick techniques</span>
                             </li>
                         </ul>
                     </div>
@@ -97,12 +97,17 @@
     width: 720px;
 }
 
-h1{
-    color: #26e;
+.profile__description h1{
+    color: #26a;
+}
+
+.profile__description p{
+    color: #111;
+    font-weight: 600;
 }
 
 .profile__skills-container h2{
-    color: #26e;
+    color: #26a;
 }
 
 .profile__skill{

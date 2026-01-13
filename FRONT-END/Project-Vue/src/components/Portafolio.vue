@@ -1,7 +1,7 @@
 <template>
     <!------ PORTFOLIO SECTION ------>
     <section class="portfolio" id="portfolio">
-        <h2 class="portfolio__title">Inspiration</h2>
+        <h2 class="portfolio__title">GET YOUR FREE GUITAR CURSE</h2>
         <div class="portfolio__project-container">
             <div class="portfolio__project">
                 <h2 class="portfolio__project-name">PROJECT</h2>

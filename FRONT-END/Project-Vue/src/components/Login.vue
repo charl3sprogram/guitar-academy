@@ -48,6 +48,8 @@
           return;
         }
         successMsg.value = data.message;
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
         window.location.href = "/";
       }catch(err){
         errorMsg.value = err;
@@ -90,20 +92,20 @@
 }
 .login-form h1 {
   text-align: center;
-  color: #26d;
+  color: #d14050;
   margin-bottom: 10px;
 }
 
 .login-form .subtitle {
   text-align: center;
-  color: #26d; 
+  color: #d15959; 
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
 /* Labels */
 .login-form label {
-  color: #26d;
+  color: #d15959;
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;
