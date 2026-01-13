@@ -27,7 +27,10 @@ Proyecto Full Stack desarrollado con Vue.js, Node.js, Express y PostgreSQL.
 ---
 
 ## 📸 Screenshots
-
+![Login](./Screenshots/Login.png)
+![Register](./Screenshots/Register.png)
+![HomeContact](./Screenshots/Home_contact.png)
+![HomeProfile](./Screenshots/Home_profile.png)
 
 
 ---
