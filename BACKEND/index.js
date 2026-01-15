@@ -94,6 +94,80 @@ app.post ('/login', async (req, res) =>{
     });
 });
 
+const Beginners_query = 
+`   SELECT
+        c.title,
+        c.description,
+        c.price,
+        c.modality,
+        c.difficulty,
+        u.id AS profesor_id,
+        u.name AS profesor_name
+        FROM cursos c
+        JOIN usuarios u ON c.profesor_id = u.id
+        WHERE c.difficulty = 'beginner'
+        AND u.rol = 'profesor';
+        `;
+
+const Intermedium_query = 
+`   SELECT
+        c.title,
+        c.description,
+        c.price,
+        c.modality,
+        c.difficulty,
+        u.id AS profesor_id,
+        u.name AS profesor_name
+        FROM cursos c
+        JOIN usuarios u ON c.profesor_id = u.id
+        WHERE c.difficulty = 'intermedium'
+        AND u.rol = 'profesor';
+        `;
+        
+const Advanced_query = 
+`   SELECT
+        c.title,
+        c.description,
+        c.price,
+        c.modality,
+        c.difficulty,
+        u.id AS profesor_id,
+        u.name AS profesor_name
+        FROM cursos c
+        JOIN usuarios u ON c.profesor_id = u.id
+        WHERE c.difficulty = 'advanced'
+        AND u.rol = 'profesor';
+        `;
+app.get('/cursos/beginner', async (req,res) =>{
+    try{
+        const result = await pool.query(Beginners_query);
+        res.json(result.rows);       
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: err});
+    }
+});
+
+app.get('/cursos/intermedium', async (req,res) =>{
+    try{
+        const result = await pool.query(Intermedium_query);
+        res.json(result.rows);       
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: err});
+    }
+});
+
+app.get('/cursos/advanced', async (req,res) =>{
+    try{
+        const result = await pool.query(Advanced_query);
+        res.json(result.rows);       
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: err});
+    }
+});
+
 /* EL USE SE USA AL FINAL PARA TODOS LOS PATH QUE NO EXISTEN, ENGLOBA TODAS LAS PETICIONES*/
 app.use((req, res) =>{
     res.send('I dont know that path');
