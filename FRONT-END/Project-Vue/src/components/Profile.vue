@@ -10,7 +10,7 @@
             <div class="profile__data-container">
                 <div class="profile__data">
                     <div class="profile__description">
-                        <h1> WELCOME TO YOUR GUITAR CURSES</h1>
+                        <h1> WELCOME TO YOUR GUITAR CURSES </h1>
                         <p> From Steve vai, to Joe Satriani, to Dimebag Darrel and Eric Jhonson, each professor with is own metodology of guitar teaching, to show you how to play and master the guitar from the lowest to the highest levels. Sharing curses from teacher of all over the world, each one with a different approach of how to teach to master the instrument. Curses made from begginers to advanced guitar players. IF YOU WANNA LEARN, TRY SOME OF OUR CURSES.                       
                         </p>
                     </div>

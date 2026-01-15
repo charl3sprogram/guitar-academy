@@ -2,14 +2,10 @@
     <main class="classes" id="main__classes">
         <h1 class="classes__title">Intermedium</h1>
         <div class="classes__category-container">       
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            <IntermediumCards card__title="Steve Vai" card__content="Lorem ipsum"></IntermediumCards>
-            
+            <IntermediumCards></IntermediumCards>
+            <IntermediumCards></IntermediumCards>
+            <IntermediumCards></IntermediumCards>
+           
         </div>
     </main>
 

@@ -233,13 +233,12 @@
 
 @keyframes header-movement {
     from{
-        margin: 0;
         background-color: rgb(15, 25, 50);   
         box-shadow: 0 0 10px  rgb(15, 25, 50); 
     }
     to{
-        background-color: rgba(15, 25, 50);
-        box-shadow: 0 0 10px rgba(15, 25, 50);
+        background-color: rgb(15, 25, 50);
+        box-shadow: 0 0 10px rgb(15, 25, 50);
     }
 }
 

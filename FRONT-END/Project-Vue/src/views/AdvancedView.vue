@@ -2,12 +2,10 @@
     <main class="classes" id="main__classes">
         <h1 class="classes__title">Advanced</h1>
         <div class="classes__category-container">       
-            <AdvancedCards card__title= "Steve Vai" card__content="Master efggerof whammy bar, god of speed and feeling, super shreding guitarist"></AdvancedCards>
-            <AdvancedCards card__title= "Steve Vai" card__content="Master of wtreterhammy bar, god of speed and feeling, super shreding guitarist"></AdvancedCards>
-            <AdvancedCards card__title= "Steve Vai" card__content="Master of treterwhammy bar, god of speed and feeling, super shreding guitarist"></AdvancedCards>
-            <AdvancedCards card__title= "Steve Vai" card__content="Master of treter bar, god of speed and feeling, super shreding guitarist"></AdvancedCards>
-            <AdvancedCards card__title= "Steve Vai" card__content="Master of terter bar, god of speed and feeling, super shreding guitarist"></AdvancedCards>
-            <AdvancedCards card__title= "Steve Vai" card__content="Master of ter bar, goed of speed and feeling, super shreding guitarist"></AdvancedCards>
+            <AdvancedCards></AdvancedCards>
+            <AdvancedCards></AdvancedCards>
+            <AdvancedCards></AdvancedCards>
+
         </div>
     </main>
 

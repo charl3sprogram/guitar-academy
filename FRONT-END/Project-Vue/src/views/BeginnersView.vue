@@ -2,13 +2,8 @@
     <main class="classes" id="main__classes">
         <h1 class="classes__title">Beginners</h1>
         <div class="classes__category-container">       
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
-            <BeginnersCards card__title="Steve Vai" card__content="Lorem ipsum"></BeginnersCards>
+            <BeginnersCards></BeginnersCards>
+            <BeginnersCards></BeginnersCards>
         </div>
     </main>
 

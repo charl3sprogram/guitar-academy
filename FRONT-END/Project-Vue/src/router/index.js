@@ -9,17 +9,17 @@ const router = createRouter({
       component: () => import('@/views/HomeView.vue'),
     }, 
     {
-      path: '/Beginners',
+      path: '/cursos/beginners',
       name: 'BeginnersCards',
       component: () => import('@/views/BeginnersView.vue'),
     },
     {
-      path: '/Intermedium',
-      name: 'IntermediumCards',
+      path: '/cursos/intermedium',
+      name: 'IntemediumCards',
       component: () => import('@/views/IntermediumView.vue'),
     },
     {
-      path: '/Advanced',
+      path: '/cursos/advanced',
       name: 'AdvancedCards',
       component: () => import('@/views/AdvancedView.vue'),
     },

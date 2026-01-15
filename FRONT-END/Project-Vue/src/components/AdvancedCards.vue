@@ -1,42 +1,21 @@
 <template>   
-    <div class="classes__category__box">
+    <div class="classes__category__box" v-for = "curso in cursos" :key = "curso.id">
         <img src="" alt="">
-        <h2 class="classes__category-title">{{card__title}}</h2>
-        <p class="classes__category__content">{{card__content}}</p>
-        <button class="classes__category-button">BUY</button>
+        <h2 class="classes__category-title">{{curso.title}}</h2>  
+        <p class="classes__category__content">{{curso.description}}</p>
+        <p class="classes__category__content">{{curso.modality}}</p>
+        <button class="classes__category-button">BUY {{curso.price}}</button>
     </div>    
 </template>
 
-<script>
-    export default{
-        props: ['card__title','card__content']    
-    } 
+<script setup>
+    import {ref, onMounted} from "vue";
 
-    /* export default{
-        
-        data(){
-            return{
-                AdvancedCards: [
-                    {
-                        card__title: "Steve Vai",
-                        card__content: "Owesome tremolo bar lover, with techniques like sweep picking and tremolo bar effects"
-                    },
-                    {
-                        card__title: "Joe Satriani",
-                        card__content: "Inbelievable techniques and slides out of this world, master of spead"
-                    },
-                    {
-                        card__title: "Joe Bonamassa",
-                        card__content: "Master of blues, super fast pentatonic scales"
-                    },
-                    {
-                        card__title: "Joe Perry",
-                        card__content: "Guitarist of Aerosmith, a crazy guy with slide techniques, and a master of blues riffs and catchy rhythim parts"
-                    }                     
-                ]
-            } 
-        }
-    } */
+    const cursos = ref([]);
+    onMounted(async () =>{
+        const res = await fetch ('http://localhost:3000/cursos/advanced');
+        cursos.value = await res.json(); 
+    });
 
 </script>
 
