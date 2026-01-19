@@ -3,8 +3,12 @@ import express from "express";
 import pool from "./db.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
+import {cursos_query, beginner_query, intermedium_query, advanced_query, getProfesors_query} from './queries.js'
 
 const app = express();
+app.use(cors());
+app.use (express.urlencoded({ extended: true})); 
+app.use (express.json());
 
 
 /* EL GET ES PARA RUTEAR, 
@@ -38,28 +42,24 @@ app.get('/search', (req, res) =>{
     res.send(`<h1> search results for: ${q} </h1>`);
 }); */
 
-app.use(cors());
-app.use (express.urlencoded({ extended: true})); 
-app.use (express.json());
-
 /* ----- REGISTER -------- */
 app.post ('/register', async (req, res) =>{
     const {name, email, password} = req.body;
 
     // ------ VERIFY EXISTING FILE
-    const userExist = await pool.query("SELECT id FROM usuarios WHERE email= $1",[email]);
+    const userExist = await pool.query("SELECT id FROM users WHERE email= $1",[email]);
     if (userExist.rows.length > 0){
-        return res.status(400).json({message: 'Usuario ya existe'});
+        return res.status(400).json({message: 'User already exists'});
     }
 
     // ------ ENCRIPT PASSWORD   
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // ------- INSERT USER
-    const newUser = await pool.query('INSERT INTO usuarios (name, email, password) VALUES ($1, $2, $3) RETURNING id, email',[name, email, hashedPassword]);
+    const newUser = await pool.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, email',[name, email, hashedPassword]);
 
     // ------ ANWSER
-    return res.status(201).json({ message: 'User Register Succesfully', user: newUser.rows[0]});
+    return res.status(201).json({ message: 'User Register Successfully', user: newUser.rows[0]});
 });
 
 /* ---------- LOGIN ---------*/
@@ -67,9 +67,9 @@ app.post ('/login', async (req, res) =>{
     const {email, password} = req.body;
 
     // --- FIND USER
-    const result = await pool.query("SELECT * FROM usuarios WHERE email= $1",[email]);
+    const result = await pool.query("SELECT * FROM users WHERE email= $1",[email]);
     if (result.rows.length === 0){
-        return res.status(401).json({ success: false, message: 'Usuario no existe'});
+        return res.status(401).json({ success: false, message: "User doesn't exist"});
     }   
     const user = result.rows[0];
 
@@ -78,69 +78,50 @@ app.post ('/login', async (req, res) =>{
     if (!isValid){
         return res.status(401).json({ success: false, message: 'Password Incorrect'});
     }
+
     const token = jwt.sign(
        {id: user.id, email: user.email},
        process.env.JWT_SECRET,
        {expiresIn: '1d'}
     )
 
-    res.json({message: 'Login exitoso, Welcome', 
+    res.json({message: 'Login successful, Welcome', 
         token,
         user: {
+            name: user.name,
             id: user.id,
             email : user.email,
-            name: user.name
+            rol: user.rol
         }
     });
 });
 
-const Beginners_query = 
-`   SELECT
-        c.title,
-        c.description,
-        c.price,
-        c.modality,
-        c.difficulty,
-        u.id AS profesor_id,
-        u.name AS profesor_name
-        FROM cursos c
-        JOIN usuarios u ON c.profesor_id = u.id
-        WHERE c.difficulty = 'beginner'
-        AND u.rol = 'profesor';
-        `;
 
-const Intermedium_query = 
-`   SELECT
-        c.title,
-        c.description,
-        c.price,
-        c.modality,
-        c.difficulty,
-        u.id AS profesor_id,
-        u.name AS profesor_name
-        FROM cursos c
-        JOIN usuarios u ON c.profesor_id = u.id
-        WHERE c.difficulty = 'intermedium'
-        AND u.rol = 'profesor';
-        `;
-        
-const Advanced_query = 
-`   SELECT
-        c.title,
-        c.description,
-        c.price,
-        c.modality,
-        c.difficulty,
-        u.id AS profesor_id,
-        u.name AS profesor_name
-        FROM cursos c
-        JOIN usuarios u ON c.profesor_id = u.id
-        WHERE c.difficulty = 'advanced'
-        AND u.rol = 'profesor';
-        `;
+/* ------- OBTENER PROFESORES --------*/
+app.get("/profesors", async (req, res) =>{
+    try{
+        const result = await pool.query(getProfesors_query);
+        res.json(result.rows);       
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: err});
+    }
+})
+
+/*  ----- TRABAJO CON CURSOS -----*/
+app.get('/cursos', async (req,res) =>{
+    try{
+        const result = await pool.query(cursos_query);
+        res.json(result.rows);       
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: err});
+    }
+});
+
 app.get('/cursos/beginner', async (req,res) =>{
     try{
-        const result = await pool.query(Beginners_query);
+        const result = await pool.query(beginner_query);
         res.json(result.rows);       
     } catch(err){
         console.error(err);
@@ -150,7 +131,7 @@ app.get('/cursos/beginner', async (req,res) =>{
 
 app.get('/cursos/intermedium', async (req,res) =>{
     try{
-        const result = await pool.query(Intermedium_query);
+        const result = await pool.query(intermedium_query);
         res.json(result.rows);       
     } catch(err){
         console.error(err);
@@ -160,7 +141,7 @@ app.get('/cursos/intermedium', async (req,res) =>{
 
 app.get('/cursos/advanced', async (req,res) =>{
     try{
-        const result = await pool.query(Advanced_query);
+        const result = await pool.query(advanced_query);
         res.json(result.rows);       
     } catch(err){
         console.error(err);

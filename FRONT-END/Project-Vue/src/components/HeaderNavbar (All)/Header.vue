@@ -5,58 +5,46 @@
         </label>
 
         <div class="header__logo-container">
-            <img src="../assets/logo.svg" class="header__logo">
+            <img src="../../assets/LOGOS/logo.svg" class="header__logo">
         </div>
         <nav class="header__nav">
             <ul class="header__nav-menu">
                 <li class="header__nav-item">
                     <router-link :to = "{name: 'Home'}"> Home  </router-link>
                 </li>    
-                <li class="header__nav-item header__nav__submenu" >
-                    <a class = "header__nav-submenu-button"> Curses </a>
-                    <ul class="header__nav-submenu-container">
-                        <li class= "header__nav-submenu-item"> 
-                            <router-link :to = "{name: 'BeginnersCards'}">Beginners</router-link>  
-                        </li>
-                        <li class= "header__nav-submenu-item"> 
-                            <router-link :to = "{name: 'IntermediumCards'}">Intermedium</router-link>
-                        </li>
-                        <li class= "header__nav-submenu-item"> 
-                            <router-link :to = "{name: 'AdvancedCards'}">Advanced</router-link>
-                        </li>
-                    </ul> 
+                <li class="header__nav-item" >
+                    <router-link :to = "{name: 'Cursos'}"> Curses </router-link>                   
                 </li>      
-                <li class="header__nav-item">
+                <li class="header__nav-item" v-if = "!isLogged()">
                     <router-link :to = "{name: 'Register'}">Register</router-link>
-                </li>         
-                <li class="header__nav-item" v-if = "!isLogged">
+                </li> 
+
+                <!-- CODIGOS PARA USUARIOS LOGUEADOS  -->      
+                <li class="header__nav-item" v-if = "!isLogged()">
                     <router-link :to = "{name: 'Login'}">Log In</router-link>
                 </li>
-                <li class="header__nav-item" v-if = "isLogged">
-                    <router-link :to = "{name: 'Login'}"  @click = "logout">Log Out</router-link>
+                <li class="header__nav-item" v-if = "isLogged()">
+                    <router-link :to = "{name: 'Login'}"  @click = "logOut()">Log Out</router-link>
                 </li>
-                <li class="header__nav-item" v-if = "isLogged">
+                <li class="header__nav-item" v-if = "isLogged()">
                     <router-link :to = "{name: 'Login'}"> Profile</router-link>
                 </li>
+
+                <!-- CODIGOS PARA USUARIOS ESPECIFICOS LOGUEADOS  --> 
+                <li class="header__nav-item" v-if = "isProfesor() || isAdmin()" >
+                    <router-link :to = "{name: 'CrearCurso'}"> Crear curso </router-link>
+                </li>
+                <li class="header__nav-item" v-if = "isAdmin()">
+                    <router-link :to = "{name: 'Profesores'}"> Profesores </router-link>
+                </li>
             </ul>
-        </nav>
+        </nav>     
     </header>
 
 </template>
 
 <script setup>
-    import {computed} from 'vue'
-
-    const isLogged = computed(() =>{
-        return !!localStorage.getItem('token');
-    })
-
-    function logout (){
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        location.reload();
-    }
-
+    import {isLogged, isProfesor, isAdmin, logOut} from '@/assets/UTILS/auths';
 
 
 </script>
@@ -138,59 +126,6 @@
 .header__nav-item :is(:hover,:active){
     text-decoration: underline;
 }
-
-/* Contenedor del item con submenú */
-.header__nav__submenu {
-    position: relative;
-}
-
-/* Submenú oculto por defecto */
-.header__nav-submenu-container {
-    position: absolute;
-    top: 100%;
-    left: 0;   
-    display: none;
-    flex-direction: column;
-    list-style: none;
-
-    padding: 8px 0;
-    border-radius: 10px;
-    max-width: 180px;
-    z-index: 20;
-
-}
-
-/* Mostrar submenú al hover */
-.header__nav__submenu:hover .header__nav-submenu-container {
-    display: flex;
-}
-
-
-/* Botón "Curses" */
-.header__nav-submenu-button {
-    cursor: pointer;
-    color: #26e;
-    display: inline-block;
-}
-
-/* Efecto hover del botón */
-.header__nav-submenu-button:hover {
-    text-decoration: underline;
-}
-
-/* Items del submenú */
-.header__nav-submenu-item {
-    padding-left: 15px;
-}
-
-/* Links del submenú */
-.header__nav-submenu-item a {
-    color: #9ab7ff;
-    font-size: 0.9em;
-}
-
-
-
 
 /* ------- HEADER QUERIES -----------*/
 @media screen and (min-width: 740px){

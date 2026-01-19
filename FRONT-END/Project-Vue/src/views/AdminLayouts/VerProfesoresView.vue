@@ -1,23 +1,20 @@
 <template>
     <main class="classes" id="main__classes">
-        <h1 class="classes__title">Advanced</h1>
+        <h1 class="classes__title">Profesors</h1>
         <div class="classes__category-container">       
-            <AdvancedCards></AdvancedCards>
-            <AdvancedCards></AdvancedCards>
-            <AdvancedCards></AdvancedCards>
-
+            <Profesors></Profesors> 
         </div>
     </main>
-
 </template>
 
 <script setup>
-    import AdvancedCards from '@/components/AdvancedCards.vue'
-  
+    import Profesors from '@/components/AdminControl/Admin Profes/VerProfesores.vue'
+
+
 </script>
 
-<style scoped>
 
+<style scoped>
 .classes{
     margin-top: 50px;
     container-name: classes;

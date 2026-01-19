@@ -3,7 +3,7 @@
     <main class="profile" id="profile">
         <div class="profile__wrapper">
             <div class="profile__img-container">
-                <img src="../modules/Fenders.jpg" class="profile__img">
+                <img src="../../assets/IMAGES/Ozzy Osbourne - The Great & Powerful - Booklet 5.jpg" class="profile__img">
             </div>
 
             <!-- PROFILE SECTION -->

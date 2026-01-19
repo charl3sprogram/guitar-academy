@@ -1,11 +1,9 @@
 <template>
     <main class="classes" id="main__classes">
-        <h1 class="classes__title">Intermedium</h1>
+        <h1 class="classes__title">Beginners</h1>
+        <CursosNavBar></CursosNavBar>  
         <div class="classes__category-container">       
-            <IntermediumCards></IntermediumCards>
-            <IntermediumCards></IntermediumCards>
-            <IntermediumCards></IntermediumCards>
-           
+            <BeginnersCards></BeginnersCards>
         </div>
     </main>
 
@@ -13,7 +11,8 @@
 </template>
 
 <script setup>
-import IntermediumCards from '@/components/IntermediumCards.vue'
+import BeginnersCards from '@/components/Cursos/BeginnersCards.vue'
+import CursosNavBar from '@/components/Cursos/CursosNavBar.vue'
 
 
 </script>
@@ -39,7 +38,7 @@ import IntermediumCards from '@/components/IntermediumCards.vue'
     width: 100%;
     gap: 20px;
     padding: 20px;   
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 
@@ -74,8 +73,6 @@ import IntermediumCards from '@/components/IntermediumCards.vue'
         grid-column: span 4;
     }
 }
-
-
 
 
 </style>

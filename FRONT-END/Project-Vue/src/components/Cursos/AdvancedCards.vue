@@ -13,14 +13,13 @@
 
     const cursos = ref([]);
     onMounted(async () =>{
-        const res = await fetch ('http://localhost:3000/cursos/intermedium');
+        const res = await fetch ('http://localhost:3000/cursos/advanced');
         cursos.value = await res.json(); 
     });
 
 </script>
 
 <style scoped>
-
 .classes__category__box{
     border-radius: 8px;
     background-color: #10233f; 
@@ -46,7 +45,7 @@
     letter-spacing: 3px; 
     margin :auto;
     margin-bottom: 20px;
-    z-index: 10;
+    z-index: 0;
     
 
     border: 1px solid #44e; 
@@ -56,9 +55,9 @@
 
 .classes__category-button::before{
     content: '';
-    background-color: #44e;
+    background-color:  #d15959;
     display: block;
-    height: 200%;
+    height: 300%;
     width: 140%;
     position:absolute;
     z-index: -1;

@@ -45,7 +45,7 @@
     letter-spacing: 3px; 
     margin :auto;
     margin-bottom: 20px;
-    z-index: 10;
+    z-index: 0;
     
 
     border: 1px solid #44e; 

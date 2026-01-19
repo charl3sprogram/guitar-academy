@@ -15,6 +15,8 @@
             <p v-if= "successMsg" class="success"> {{successMsg }} </p>
         </form>
     </div>
+
+    <!-- IDEA PARA COLAR LA FOTO DE FONDO -->
     <div class="background-wrapper"></div>
 </template>
 
@@ -37,7 +39,7 @@
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 email: email.value,
-                password: password.value
+                password: password.value,
             })
         }); 
 

@@ -65,7 +65,7 @@
 }
 
 .portfolio__project{
-    background-image: linear-gradient(#0009,#0009), url("./IMAGES/Transgression.png");
+    background-image: linear-gradient(#0009,#0009), url("../../assets/IMAGES/Transgression.png");
     background-position: center;
     background-size: cover;
     display: grid;
