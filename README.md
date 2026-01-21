@@ -4,7 +4,7 @@ Educative web plataform for guitarist all over the world. Selling guitar courses
 
 ---
 
-## 🚀 Tecnologías
+## 🚀 Technologies
 - Vue.js
 - Node.js
 - Express
@@ -14,130 +14,120 @@ Educative web plataform for guitarist all over the world. Selling guitar courses
 
 ---
 
-🚀 Funcionalidades principales del proyecto
-Este proyecto es una plataforma educativa full-stack desarrollada con Vue en el frontend, Node.js + Express en el backend y PostgreSQL como base de datos. A continuación se detallan sus funcionalidades principales.
+# 🚀 Main functionalities of the project
+This project is a full-stack educational platform developed with Vue on the frontend, Node.js + Express on the backend, and PostgreSQL as the database. The main functionalities are detailed below.
 
-🔹 Visualización y gestión de profesores
+🔹 Professor visualization and management
 
-🔹 Vista pública de profesores
+🔹 Public professor view
+All users, whether logged in or not, can access the Professors section.
 
-Todos los usuarios, estén logueados o no, pueden acceder a la sección Profesores.
-Se muestran todos los profesores registrados con su:
+All registered professors are displayed with their:
 
-- Nombre
-
+- Name
 - Email
-
-- Imagen de perfil
-
-La información se obtiene mediante peticiones al backend y se renderiza dinámicamente en tarjetas.
-
-🔹 Funcionalidades exclusivas del administrador
-Cuando el usuario tiene rol Administrador, el sistema lo reconoce automáticamente y se habilitan botones adicionales en la vista de profesores:
-
-- Insert professor (en desarrollo)
-
-- Erase professor (en desarrollo)
-
-Estos botones solo se muestran si el usuario es administrador.
-
-Aunque estas acciones están aún en desarrollo, el renderizado condicional por rol funciona correctamente y demuestra la lógica de autorización del sistema.
-
-🔹 Sistema de imágenes de perfil (uploads)
-El proyecto implementa una lógica clara y escalable para manejar imágenes de perfil:
-
-- Existe una carpeta /uploads en el backend.
-
-- Las imágenes se almacenan físicamente en esa carpeta.
-
-- En la base de datos solo se guarda la ruta de la imagen, no el archivo en sí.
-
-- El backend expone la carpeta /uploads como contenido estático, permitiendo que las imágenes se accedan mediante una URL estable.
-
-- El frontend recibe la ruta de la imagen desde el backend y la renderiza dinámicamente en cada tarjeta.
-
-Actualmente:
-
-- Las imágenes han sido añadidas manualmente a la carpeta uploads.
-
-La lógica está preparada para que en el futuro los usuarios puedan subir su imagen mediante un botón Upload.
-
-🔹 Perfil de usuario (en desarrollo).
-Se está desarrollando la vista Profile, accesible para:
-
-1- Profesores
-
-2- Administradores
-
-3- Alumnos
-
-En esta vista se mostrará la información del usuario según su rol.
-El objetivo principal de esta sección es permitir:
-
-- Subir o cambiar la foto de perfil 
-- Gestionar información personal
+- Profile image
   
-- El botón Upload ya está planteado conceptualmente y será el encargado de enviar la imagen al backend y almacenarla en /uploads.
+The information is obtained through backend requests and is dynamically rendered in cards.
 
-🔹 Gestión de cursos:
+🔹 Administrator-only functionalities
 
-🔹 Visualización de cursos!
+When the user has the Administrator role, the system automatically recognizes it and additional buttons are enabled in the professors view:
 
-Los cursos se muestran en tarjetas dinámicas.
-Cada curso incluye:
+- Insert professor (in development)
+- Erase professor (in development)
+  
+These buttons are only shown if the user is an administrator.
 
-- Información del curso
-- Dificultad
-- Modalidad
-- Precio
-- Profesor al que pertenece (nombre e imagen)
-Existe un navbar de filtrado que permite ver cursos por dificultad:
-1- Beginner
-2- Intermediate
-3- Advanced
+Although these actions are still under development, the conditional rendering by role works correctly and demonstrates the system’s authorization logic.
 
-🔹 Create Course (profesores y administradores)
+🔹 Profile image system (uploads)
+The project implements a clear and scalable logic to handle profile images:
 
-El botón Create Course se muestra únicamente a:
+- There is an /uploads folder on the backend.
+- Images are physically stored in that folder.
+- Only the image path is stored in the database, not the file itself.
+- The backend exposes the /uploads folder as static content, allowing images to be accessed via a stable URL.
+- The frontend receives the image path from the backend and dynamically renders it on each card.
+- Currently:
+Images have been manually added to the uploads folder.
+The logic is prepared so that in the future users can upload their image via an Upload button.
 
-1- Profesores
+🔹 User profile (in development)
+The Profile view is being developed and is accessible to:
 
-2- Administradores
+1- Professors
 
-El formulario cuenta con validaciones (required) y estructura profesional.
+2- Administrator
 
-📌 Si el usuario es profesor:
-- El curso se crea automáticamente asociado a su usuario.
-- No necesita seleccionar profesor.
+3- Students
 
-📌 Si el usuario es administrador:
-- Se muestra un select dinámico de profesores.
-- El administrador elige a qué profesor asignar el curso.
-- El curso queda correctamente vinculado a ese profesor.
-- Esta lógica garantiza una relación clara entre cursos y profesores.
+In this view, the user’s information will be displayed according to their role.
 
-🔹 Autenticación, roles y seguridad
-- Sistema completo de login con token.
-- El token se guarda en Local Storage.
-- La sesión se mantiene activa y el frontend identifica el rol del usuario.
-- La UI se adapta dinámicamente según permisos.
+The main goal of this section is to allow:
 
-🔹 Arquitectura y organización del backend
-El backend está organizado de forma clara y escalable:
+- Uploading or changing the profile photo
+- Managing personal information
+The Upload button has already been conceptually designed and will be responsible for sending the image to the backend and storing it in /uploads.
+
+🔹 Course management
+
+🔹 Course visualization!
+
+Courses are displayed in dynamic cards.
+Each course includes:
+
+- Course information
+- Difficulty
+- Modality
+- Price
+- Associated professor (name and image)
+- There is a filtering navbar that allows viewing courses by difficulty: beginner, intermediate and advanced
+
+🔹 Create Course (professors and administrators)
+
+The Create Course button is shown only to:
+
+1- Professors
+
+2- Administrators
+
+The form includes validations (required) and a professional structure.
+
+📌 If the user is a professor:
+The course is automatically created associated with their user.
+No need to select a professor.
+
+📌 If the user is an administrator:
+A dynamic select of professors is displayed.
+
+The administrator chooses which professor to assign the course to.
+The course is correctly linked to that professor.
+
+This logic ensures a clear relationship between courses and professors.
+
+🔹 Authentication, roles, and security
+- Complete login system with token.
+The token is stored in Local Storage.
+- The session remains active and the frontend identifies the user’s role.
+- The UI dynamically adapts based on permissions.
+  
+🔹 Backend architecture and organization
+The backend is organized in a clear and scalable way:
 
 1- authorization.js
-Contiene la lógica de autorización y control de roles.
+Contains the authorization logic and role control.
 
 2- queries.js
-Centraliza todas las consultas SQL a PostgreSQL.
+Centralizes all SQL queries to PostgreSQL.
 
 3- seeds
-Scripts para insertar datos iniciales (usuarios, profesores, etc.).
+Scripts to insert initial data (users, professors, etc.).
 
-4-index.js
-Punto de entrada del servidor donde se combinan rutas, autorización y queries.
+4- index.js
+Server entry point where routes, authorization, and queries are combined.
 
----
+--
 
 ## 📸 Screenshots
 ![Register](./Screenshots/Register.png)
@@ -147,14 +137,15 @@ Punto de entrada del servidor donde se combinan rutas, autorización y queries.
 ![ProfessorsPage](./Screenshots/Profesors_page.png)
 
 
+--
+
+# 🚀 Project status:
+
+All the described functionalities are working correctly, except for those explicitly marked as in development.
+
 ---
 
-## 📌 Estado del proyecto
-Todas las funcionalidades descritas están funcionando correctamente, salvo aquellas marcadas explícitamente como en desarrollo.
-
----
-
-## 👤 Autor
+## 👤 Author
 **CharlesPuyalena**  
 Informatic engineering student of the Jose Antonio Hechevarría University (CUJAE)... Cuba(3er año) 
 Mid-Level Full Stack Web Developer  
