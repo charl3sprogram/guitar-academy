@@ -19,8 +19,10 @@ Este proyecto es una plataforma educativa full-stack desarrollada con Vue en el 
 
 🔹 Visualización y gestión de profesores
 🔹 Vista pública de profesores
+
 Todos los usuarios, estén logueados o no, pueden acceder a la sección Profesores.
 Se muestran todos los profesores registrados con su:
+
 -Nombre
 -Email
 -Imagen de perfil
@@ -28,28 +30,32 @@ Se muestran todos los profesores registrados con su:
 La información se obtiene mediante peticiones al backend y se renderiza dinámicamente en tarjetas.
 
 🔹 Funcionalidades exclusivas del administrador
-Cuando el usuario tiene rol Administrador, el sistema lo reconoce automáticamente y:
-Se habilitan botones adicionales en la vista de profesores:
+Cuando el usuario tiene rol Administrador, el sistema lo reconoce automáticamente y se habilitan botones adicionales en la vista de profesores:
+
 -Insert professor (en desarrollo)
 -Erase professor (en desarrollo)
+
 Estos botones solo se muestran si el usuario es administrador.
 
 Aunque estas acciones están aún en desarrollo, el renderizado condicional por rol funciona correctamente y demuestra la lógica de autorización del sistema.
 
 🔹 Sistema de imágenes de perfil (uploads)
 El proyecto implementa una lógica clara y escalable para manejar imágenes de perfil:
+
 -Existe una carpeta /uploads en el backend.
 -Las imágenes se almacenan físicamente en esa carpeta.
 -En la base de datos solo se guarda la ruta de la imagen, no el archivo en sí.
 -El backend expone la carpeta /uploads como contenido estático, permitiendo que las imágenes se accedan mediante una URL estable.
 -El frontend recibe la ruta de la imagen desde el backend y la renderiza dinámicamente en cada tarjeta.
+
 Actualmente:
 -Las imágenes han sido añadidas manualmente a la carpeta uploads.
 
 La lógica está preparada para que en el futuro los usuarios puedan subir su imagen mediante un botón Upload.
 
-🔹 Perfil de usuario (en desarrollo)
+🔹 Perfil de usuario (en desarrollo).
 Se está desarrollando la vista Profile, accesible para:
+
 1- Profesores
 2- Administradores
 3- Alumnos
@@ -76,6 +82,7 @@ Existe un navbar de filtrado que permite ver cursos por dificultad:
 
 🔹 Create Course (profesores y administradores)
 El botón Create Course se muestra únicamente a:
+
 1- Profesores
 2- Administradores
 El formulario cuenta con validaciones (required) y estructura profesional.
