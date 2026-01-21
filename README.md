@@ -156,6 +156,6 @@ Todas las funcionalidades descritas están funcionando correctamente, salvo aque
 
 ## 👤 Autor
 **CharlesPuyalena**  
-Informatic engeeniery student of the Jose Antonio Hechevarría University (CUJAE)... CUBA(3er año) 
+Informatic engineering student of the Jose Antonio Hechevarría University (CUJAE)... Cuba(3er año) 
 Mid-Level Full Stack Web Developer  
 GitHub: https://github.com/charl3sprogram
