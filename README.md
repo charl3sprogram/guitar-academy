@@ -18,22 +18,26 @@ Educative web plataform for guitarist all over the world. Selling guitar courses
 Este proyecto es una plataforma educativa full-stack desarrollada con Vue en el frontend, Node.js + Express en el backend y PostgreSQL como base de datos. A continuación se detallan sus funcionalidades principales.
 
 🔹 Visualización y gestión de profesores
+
 🔹 Vista pública de profesores
 
 Todos los usuarios, estén logueados o no, pueden acceder a la sección Profesores.
 Se muestran todos los profesores registrados con su:
 
--Nombre
--Email
--Imagen de perfil
+- Nombre
+
+- Email
+
+- Imagen de perfil
 
 La información se obtiene mediante peticiones al backend y se renderiza dinámicamente en tarjetas.
 
 🔹 Funcionalidades exclusivas del administrador
 Cuando el usuario tiene rol Administrador, el sistema lo reconoce automáticamente y se habilitan botones adicionales en la vista de profesores:
 
--Insert professor (en desarrollo)
--Erase professor (en desarrollo)
+- Insert professor (en desarrollo)
+
+- Erase professor (en desarrollo)
 
 Estos botones solo se muestran si el usuario es administrador.
 
@@ -42,14 +46,19 @@ Aunque estas acciones están aún en desarrollo, el renderizado condicional por 
 🔹 Sistema de imágenes de perfil (uploads)
 El proyecto implementa una lógica clara y escalable para manejar imágenes de perfil:
 
--Existe una carpeta /uploads en el backend.
--Las imágenes se almacenan físicamente en esa carpeta.
--En la base de datos solo se guarda la ruta de la imagen, no el archivo en sí.
--El backend expone la carpeta /uploads como contenido estático, permitiendo que las imágenes se accedan mediante una URL estable.
--El frontend recibe la ruta de la imagen desde el backend y la renderiza dinámicamente en cada tarjeta.
+- Existe una carpeta /uploads en el backend.
+
+- Las imágenes se almacenan físicamente en esa carpeta.
+
+- En la base de datos solo se guarda la ruta de la imagen, no el archivo en sí.
+
+- El backend expone la carpeta /uploads como contenido estático, permitiendo que las imágenes se accedan mediante una URL estable.
+
+- El frontend recibe la ruta de la imagen desde el backend y la renderiza dinámicamente en cada tarjeta.
 
 Actualmente:
--Las imágenes han sido añadidas manualmente a la carpeta uploads.
+
+- Las imágenes han sido añadidas manualmente a la carpeta uploads.
 
 La lógica está preparada para que en el futuro los usuarios puedan subir su imagen mediante un botón Upload.
 
@@ -57,19 +66,26 @@ La lógica está preparada para que en el futuro los usuarios puedan subir su im
 Se está desarrollando la vista Profile, accesible para:
 
 1- Profesores
+
 2- Administradores
+
 3- Alumnos
 
 En esta vista se mostrará la información del usuario según su rol.
 El objetivo principal de esta sección es permitir:
-- Subir o cambiar la foto de perfil
+
+- Subir o cambiar la foto de perfil 
 - Gestionar información personal
+  
 - El botón Upload ya está planteado conceptualmente y será el encargado de enviar la imagen al backend y almacenarla en /uploads.
 
-🔹 Gestión de cursos
-🔹 Visualización de cursos
+🔹 Gestión de cursos:
+
+🔹 Visualización de cursos!
+
 Los cursos se muestran en tarjetas dinámicas.
 Cada curso incluye:
+
 - Información del curso
 - Dificultad
 - Modalidad
@@ -81,10 +97,13 @@ Existe un navbar de filtrado que permite ver cursos por dificultad:
 3- Advanced
 
 🔹 Create Course (profesores y administradores)
+
 El botón Create Course se muestra únicamente a:
 
 1- Profesores
+
 2- Administradores
+
 El formulario cuenta con validaciones (required) y estructura profesional.
 
 📌 Si el usuario es profesor:
