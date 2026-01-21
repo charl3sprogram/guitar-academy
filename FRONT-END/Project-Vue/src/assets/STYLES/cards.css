@@ -1,35 +1,12 @@
-<template>
-    <div class="classes__category__box" v-for = "profesor in profesors" :key = "profesor.id">
-        <img src="" alt="">
-        <h2 class="classes__category-title">{{profesor.name}}</h2>  
-        <p class="classes__category__content">{{profesor.email}}</p>
-        <button class="classes__category-button" @click = "erase()"> ERASE </button>
-    </div>   
-</template>
-
-<script setup>
-import {ref, onMounted} from "vue";
-    
-    const profesors = ref([]);
-    onMounted(async () =>{
-        const res = await fetch ('http://localhost:3000/profesors');
-        profesors.value = await res.json(); 
-    });
-    
-
-
-</script>
-
-<style scoped>
 .classes__category__box{
     border-radius: 8px;
     background-color: #10233f; 
-    color: #fff;
+    color: rgb(127,255,212);
     text-align: center;
     display: grid;
+    gap: 15px;
     min-height: 300px;
 }
-
 
 .classes__category__content{
     text-wrap: balance;
@@ -74,5 +51,3 @@ import {ref, onMounted} from "vue";
     left: -20%;
     margin-top: -10%;
 }
-    
-</style>

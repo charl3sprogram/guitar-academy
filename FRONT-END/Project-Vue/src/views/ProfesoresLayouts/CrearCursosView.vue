@@ -1,9 +1,9 @@
 <template>
-    <CrearCursos></CrearCursos>
+    <CreateCourses></CreateCourses>
 </template>
 
 <script setup>
-    import CrearCursos from '@/components/Cursos/Manipular Cursos (Profes)/CrearCursos.vue'
+    import CreateCourses from '@/components/ProfesControl/ProfesCourses/CreateCourses.vue'
 
 
 </script>

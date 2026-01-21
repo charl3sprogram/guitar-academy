@@ -1,16 +1,16 @@
 <template>
     <ul class="header__nav-menu">
         <li class="header__nav-item"> 
-            <router-link :to = "{name: 'Cursos'}">All Curses </router-link>  
+            <router-link :to = "{name: 'Courses'}">All Courses </router-link>  
         </li>       
         <li class="header__nav-item"> 
-            <router-link :to = "{name: 'BeginnersCards'}">Beginners Curses</router-link>  
+            <router-link :to = "{name: 'BeginnersCards'}">Beginners Courses</router-link>  
         </li>
         <li class="header__nav-item"> 
-            <router-link :to = "{name: 'IntermediumCards'}">Intermedium Curses</router-link>
+            <router-link :to = "{name: 'IntermediumCards'}">Intermedium Courses</router-link>
         </li>
         <li class="header__nav-item"> 
-            <router-link :to = "{name: 'AdvancedCards'}">Advanced Curses</router-link>
+            <router-link :to = "{name: 'AdvancedCards'}">Advanced Courses</router-link>
         </li>
     </ul> 
 </template>
@@ -37,7 +37,7 @@
     
     .header__nav-item a{       
         text-decoration: none;
-        color: rgb(127,255,212);
+        color: #2a4cff;
     }
     
     .header__nav-item :is(:hover,:active){

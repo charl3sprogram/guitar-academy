@@ -13,7 +13,7 @@
                     <router-link :to = "{name: 'Home'}"> Home  </router-link>
                 </li>    
                 <li class="header__nav-item" >
-                    <router-link :to = "{name: 'Cursos'}"> Curses </router-link>                   
+                    <router-link :to = "{name: 'Courses'}"> Courses </router-link>                   
                 </li>      
                 <li class="header__nav-item" v-if = "!isLogged()">
                     <router-link :to = "{name: 'Register'}">Register</router-link>
@@ -27,15 +27,15 @@
                     <router-link :to = "{name: 'Login'}"  @click = "logOut()">Log Out</router-link>
                 </li>
                 <li class="header__nav-item" v-if = "isLogged()">
-                    <router-link :to = "{name: 'Login'}"> Profile</router-link>
+                    <router-link :to = "{name: ''}"> Profile</router-link>
                 </li>
 
                 <!-- CODIGOS PARA USUARIOS ESPECIFICOS LOGUEADOS  --> 
                 <li class="header__nav-item" v-if = "isProfesor() || isAdmin()" >
-                    <router-link :to = "{name: 'CrearCurso'}"> Crear curso </router-link>
+                    <router-link :to = "{name: 'CreateCourse'}"> Create Course </router-link>
                 </li>
-                <li class="header__nav-item" v-if = "isAdmin()">
-                    <router-link :to = "{name: 'Profesores'}"> Profesores </router-link>
+                <li class="header__nav-item">
+                    <router-link :to = "{name: 'Profesors'}"> Profesors </router-link>
                 </li>
             </ul>
         </nav>     
@@ -53,7 +53,8 @@
 
 /*----------- HEADER SECTION ----------------*/
 .header{
-    background-color: rgba(15, 25, 50, 1);
+    background-color: rgb(15, 25, 50);
+    box-shadow: 0 0 8px rgb(127,255,212);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,7 +81,7 @@
 
 .header__nav{
     display: none; 
-    background-color: rgba(15, 25, 50, 1);
+    background-color: rgb(15, 25, 50);
     position: absolute;  
     height: 100vh;
     width: 100vw;
@@ -120,7 +121,7 @@
 
 .header__nav-item a{       
     text-decoration: none;
-    color: rgb(127,255,212);
+    color: #2a4cff;
 }
 
 .header__nav-item :is(:hover,:active){
@@ -131,8 +132,6 @@
 @media screen and (min-width: 740px){
     .header{
         padding: 10px 0;
-        animation: header-movement both;
-        animation-timeline: scroll();
         position: sticky;
         top: 0;
         animation-range: 10px 100px;       
@@ -165,17 +164,5 @@
 /* ----------- HEADER ENDS ----------*/
 
 /* --------ANIMATION -------*/
-
-@keyframes header-movement {
-    from{
-        background-color: rgb(15, 25, 50);   
-        box-shadow: 0 0 10px  rgb(15, 25, 50); 
-    }
-    to{
-        background-color: rgb(15, 25, 50);
-        box-shadow: 0 0 10px rgb(15, 25, 50);
-    }
-}
-
 
 </style>

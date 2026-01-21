@@ -25,7 +25,7 @@
 
 .classes__title{
     text-align: center;
-    color: #fff;
+    color: rgb(127,255,212);
 }
 
 .classes__category-container{

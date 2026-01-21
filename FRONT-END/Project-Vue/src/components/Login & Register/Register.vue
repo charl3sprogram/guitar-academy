@@ -66,13 +66,7 @@
 .background-wrapper{
   height:30vh;
 }
-.error{
-  color: red;
-}
 
-.success{
-  color: green;
-}
 .container {
   display: flex;
   justify-content: center;
@@ -91,24 +85,24 @@
 /* Formulario */
 .register-form{
     max-width: 80%;
-    min-width: 60%;
+    min-width: 80%;
 }
 .register-form h1 {
   text-align: center;
-  color: #d14050;
+  color: rgb(127,255,212);
   margin-bottom: 10px;
 }
 
 .register-form .subtitle {
   text-align: center;
-  color: #d14050; 
+  color: rgb(127,255,212);
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
 /* Labels */
 .register-form label {
-  color: #d14050;
+  color: rgb(127,255,212);
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;

@@ -1,7 +1,8 @@
 node_modules/
 .env
 dist/
-seedprofesores.js
-seedAdmin.js
-seedCursos.js
-queries.js
+build/
+logs/
+.cache/
+.vite/
+uploads/

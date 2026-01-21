@@ -65,13 +65,7 @@
 .background-wrapper{
   height:30vh;
 }
-.error{
-  color: red;
-}
 
-.success{
-  color: green;
-}
 .container {
   display: flex;
   justify-content: center;
@@ -90,24 +84,24 @@
 /* Formulario */
 .login-form{
     max-width: 80%;
-    min-width: 60%;
+    min-width: 80%;
 }
 .login-form h1 {
   text-align: center;
-  color: #d14050;
+  color: rgb(127,255,212);
   margin-bottom: 10px;
 }
 
 .login-form .subtitle {
   text-align: center;
-  color: #d15959; 
+  color: rgb(127,255,212);
   margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
 /* Labels */
 .login-form label {
-  color: #d15959;
+  color: rgb(127,255,212);
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;

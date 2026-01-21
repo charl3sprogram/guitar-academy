@@ -9,44 +9,44 @@ const router = createRouter({
       component: () => import('@/views/Home, Login, Register/HomeView.vue'),
     },
     {
-      path: '/cursos',
-      name: 'Cursos',
+      path: '/courses',
+      name: 'Courses',
       component: () => import('@/views/CursosLayouts/CursosView.vue'),
     }, 
     {
-      path: '/cursos/beginners',
+      path: '/courses/beginners',
       name: 'BeginnersCards',
       component: () => import('@/views/CursosLayouts/BeginnersView.vue'),
     },
     {
-      path: '/cursos/intermedium',
+      path: '/courses/intermedium',
       name: 'IntermediumCards',
       component: () => import('@/views/CursosLayouts/IntermediumView.vue'),
     },
     {
-      path: '/cursos/advanced',
+      path: '/courses/advanced',
       name: 'AdvancedCards',
       component: () => import('@/views/CursosLayouts/AdvancedView.vue'),
     },
     {
-      path: '/Login',
+      path: '/login',
       name: 'Login',
       component: () => import('@/views/Home, Login, Register/LoginView.vue'),
     },
     {
-      path: '/Register',
+      path: '/register',
       name: 'Register',
       component: () => import('@/views/Home, Login, Register/RegisterView.vue'),
     }, 
    /*  PATHS DE USUARIOS ESPECIFICOS */
     {
-      path: '/CrearCursos',
-      name: 'CrearCurso',
+      path: '/create_course',
+      name: 'CreateCourse',
       component: () => import('@/views/ProfesoresLayouts/CrearCursosView.vue'),
     }, 
     {
-      path: '/Profesores',
-      name: 'Profesores',
+      path: '/profesors',
+      name: 'Profesors',
       component: () => import('@/views/AdminLayouts/VerProfesoresView.vue'),
     }, 
   ]

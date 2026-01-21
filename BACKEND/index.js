@@ -3,7 +3,7 @@ import express from "express";
 import pool from "./db.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
-import {cursos_query, beginner_query, intermedium_query, advanced_query, getProfesors_query} from './queries.js'
+import {cursos_query, beginner_query, intermedium_query, advanced_query, getProfesors_query, insertCourses_query} from './queries.js'
 
 const app = express();
 app.use(cors());
@@ -47,7 +47,7 @@ app.post ('/register', async (req, res) =>{
     const {name, email, password} = req.body;
 
     // ------ VERIFY EXISTING FILE
-    const userExist = await pool.query("SELECT id FROM users WHERE email= $1",[email]);
+    const userExist = await pool.query("SELECT user_id FROM users WHERE email= $1",[email]);
     if (userExist.rows.length > 0){
         return res.status(400).json({message: 'User already exists'});
     }
@@ -109,7 +109,7 @@ app.get("/profesors", async (req, res) =>{
 })
 
 /*  ----- TRABAJO CON CURSOS -----*/
-app.get('/cursos', async (req,res) =>{
+app.get('/courses', async (req,res) =>{
     try{
         const result = await pool.query(cursos_query);
         res.json(result.rows);       
@@ -119,7 +119,7 @@ app.get('/cursos', async (req,res) =>{
     }
 });
 
-app.get('/cursos/beginner', async (req,res) =>{
+app.get('/courses/beginner', async (req,res) =>{
     try{
         const result = await pool.query(beginner_query);
         res.json(result.rows);       
@@ -129,7 +129,7 @@ app.get('/cursos/beginner', async (req,res) =>{
     }
 });
 
-app.get('/cursos/intermedium', async (req,res) =>{
+app.get('/courses/intermedium', async (req,res) =>{
     try{
         const result = await pool.query(intermedium_query);
         res.json(result.rows);       
@@ -139,7 +139,7 @@ app.get('/cursos/intermedium', async (req,res) =>{
     }
 });
 
-app.get('/cursos/advanced', async (req,res) =>{
+app.get('/courses/advanced', async (req,res) =>{
     try{
         const result = await pool.query(advanced_query);
         res.json(result.rows);       
@@ -148,6 +148,29 @@ app.get('/cursos/advanced', async (req,res) =>{
         res.status(500).json({error: err});
     }
 });
+
+app.post('/createCourse', async (req,res) =>{
+    const {title, description, difficulty, modality, price, profesorEmail} = req.body;
+
+    const result = await pool.query(`SELECT user_id FROM users WHERE email = $1 AND rol = $2`,[profesorEmail, 'profesor']);
+/* ESTO ES POR SI ACASO.. PORQUE EL PROFESOR VA A ESTAR SELECCIONADO CON UN OPTION CORRECTAMENTE */
+    if(result.rows.length === 0){
+        return res.status(400).json({message:'Profesor no encontrado'});
+    }
+    const user_id = result.rows[0].user_id;
+    const profesor_id = user_id;
+    
+    const newCourse = await pool.query(insertCourses_query,[title, description, difficulty, modality, price, profesor_id]);
+    return res.status(201).json({ message: 'Course created successfully', course: newCourse.rows[0]});
+});
+
+/* ------ UPLOADING IMAGES -------- */
+app.use('/uploads',express.static('uploads'));
+
+
+
+
+
 
 /* EL USE SE USA AL FINAL PARA TODOS LOS PATH QUE NO EXISTEN, ENGLOBA TODAS LAS PETICIONES*/
 app.use((req, res) =>{

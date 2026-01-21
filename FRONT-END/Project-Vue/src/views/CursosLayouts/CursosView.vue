@@ -1,6 +1,6 @@
 <template>
     <main class="classes" id="main__classes">
-        <h1 class="classes__title">Curses</h1>
+        <h1 class="classes__title">Courses</h1>
         <CursosNavBar></CursosNavBar>       
         <div class="classes__category-container">       
             <CursosCards></CursosCards>
@@ -26,7 +26,7 @@ import CursosNavBar from '@/components/Cursos/CursosNavBar.vue'
 
 .classes__title{
     text-align: center;
-    color: #fff;
+    color: rgb(127,255,212);
 }
 
 .classes__category-container{
