@@ -34,6 +34,9 @@
                 <li class="header__nav-item" v-if = "isProfesor() || isAdmin()" >
                     <router-link :to = "{name: 'CreateCourse'}"> Create Course </router-link>
                 </li>
+                <li class="header__nav-item" v-if = "isProfesor()" >
+                    <router-link :to = "{name: 'MyCourses'}"> My Courses </router-link>
+                </li>
                 <li class="header__nav-item">
                     <router-link :to = "{name: 'Profesors'}"> Profesors </router-link>
                 </li>

@@ -25,3 +25,15 @@ export function logOut (){
         window.location.href = "/";
     };
 
+export function canDeleteCourse(course){
+        const user = getUser();
+
+        if (!user) return false;
+
+        if(user.rol === 'admin') return true;
+
+        return false;       
+    }
+    
+
+

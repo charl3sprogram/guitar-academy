@@ -3,7 +3,7 @@ import express from "express";
 import pool from "./db.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
-import {cursos_query, beginner_query, intermedium_query, advanced_query, getProfesors_query, insertCourses_query} from './queries.js'
+import {cursos_query, beginner_query, intermedium_query, advanced_query, getProfesors_query, insertCourses_query, myCursos_query} from './queries.js'
 
 const app = express();
 app.use(cors());
@@ -80,7 +80,7 @@ app.post ('/login', async (req, res) =>{
     }
 
     const token = jwt.sign(
-       {id: user.id, email: user.email},
+       {id: user.user_id, email: user.email},
        process.env.JWT_SECRET,
        {expiresIn: '1d'}
     )
@@ -89,7 +89,7 @@ app.post ('/login', async (req, res) =>{
         token,
         user: {
             name: user.name,
-            id: user.id,
+            id: user.user_id,
             email : user.email,
             rol: user.rol
         }
@@ -112,6 +112,17 @@ app.get("/profesors", async (req, res) =>{
 app.get('/courses', async (req,res) =>{
     try{
         const result = await pool.query(cursos_query);
+        res.json(result.rows);       
+    } catch(err){
+        console.error(err);
+        res.status(500).json({error: err});
+    }
+});
+
+app.get('/myCourses', async (req,res) =>{
+    try{
+        const profesorID = req.query.profesorID
+        const result = await pool.query(myCursos_query, [profesorID]);
         res.json(result.rows);       
     } catch(err){
         console.error(err);

@@ -61,6 +61,12 @@ export const cursos_query =
         WHERE u.rol = 'profesor';
         `;
 
+export const myCursos_query = 
+`   SELECT *
+        FROM courses
+        WHERE profesor_id = $1;     
+        `;
+
 
 export const getProfesors_query =
 `SELECT 
