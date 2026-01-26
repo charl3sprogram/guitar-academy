@@ -30,27 +30,6 @@
 </script>
 
 <style scoped>
-strong{
-    color:#2a4cff;
-    font-weight: 600;
-}
-
-.profesor_image{
-    width: 120px;
-    height: 120px;
-    margin: 15px auto;
-
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #2a4cff
-}
-
-.profesor_image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 
 </style>

@@ -3,5 +3,10 @@
 }
 
 .success{
-  color: green;
+  color: rgb(120,255,212);
+}
+
+strong{
+    color:#2a4cff;
+    font-weight: 800;
 }

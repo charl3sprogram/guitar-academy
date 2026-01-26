@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import '@/assets/STYLES/cards.css'
 import '@/assets/STYLES/validationColors.css'
+import '@/assets/STYLES/cardsContainers.css'
 
 const app = createApp(App)
 

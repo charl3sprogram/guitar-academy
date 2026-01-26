@@ -22,22 +22,6 @@ import {isAdmin} from '@/assets/UTILS/auths';
 </script>
 
 <style scoped>
-.profesor_image{
-    width: 120px;
-    height: 120px;
-    margin: 15px auto;
-
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #2a4cff
-}
-
-.profesor_image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
 
 .classes__category__content{
     margin-bottom: 20px;

@@ -3,10 +3,14 @@
         <h2 class="classes__category-title"><strong>Course Title:</strong> {{curso.title}}</h2>  
         <p class="classes__category__content"><strong>Description:</strong> {{curso.description}}</p>
         <p class="classes__category__content"><strong>Modality:</strong> {{curso.modality}}</p>
+        <p class="classes__category__content"><strong>Price:</strong> {{curso.price}}</p>   
         <button class="classes__category-button">
-            ERASE COURSE
-        </button>
-        <button class="classes__category-button">BUY {{curso.price}}</button>       
+            Erase Course
+        </button> 
+        <button class="classes__category-button">
+            Modify Course
+        </button>   
+
     </div>    
 </template>
 
@@ -39,10 +43,6 @@
 <style scoped>
 .classes__category-title{
     margin: 30px 0 0 0;
-}
-strong{
-    color:#2a4cff;
-    font-weight: 600;
 }
 
 </style>

@@ -10,7 +10,6 @@ app.use(cors());
 app.use (express.urlencoded({ extended: true})); 
 app.use (express.json());
 
-
 /* EL GET ES PARA RUTEAR, 
 TAMBIÉN TIENEN DIFERENTES NOMBRES CADA UNO DISTINTO "POST" , "PUT"
 SI QUIERES MATCH TODO LO DEMAS, DEBAJO DE TODOS LOS GET ES LA FUNCION USE*/
@@ -20,27 +19,6 @@ app.get("/test-db", async(req, res) =>{
     pool.query("SELECT NOW()");
     res.json(result.rows);
 })
-
-/* app.get('/', (req, res) =>{
-    EL res.send PUEDE SER UN STRING, UN OBJETO,UN HTML, ES VERSATIL
-    res.send('<h1> This is home page </h1>');
-});
-
-app.get('/r/:subreddit', (req, res) =>{
-    const {subreddit} = req.params;
-    res.send(`<h1> Viendo el ${subreddit} subreddit </h1>`);
-}) ;
-
-app.get('/r/:subreddit/:postID', (req, res) =>{
-    const {subreddit, postID} = req.params;
-    res.send(`<h1> Viendo el ID: ${postID} en el ${subreddit} subreddit </h1>`);
-}); 
-
-TO GET A QUERY 
-app.get('/search', (req, res) =>{
-    const {q} = req.query;
-    res.send(`<h1> search results for: ${q} </h1>`);
-}); */
 
 /* ----- REGISTER -------- */
 app.post ('/register', async (req, res) =>{
@@ -56,7 +34,7 @@ app.post ('/register', async (req, res) =>{
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // ------- INSERT USER
-    const newUser = await pool.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, email',[name, email, hashedPassword]);
+    const newUser = await pool.query('INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING user_id, email',[name, email, hashedPassword]);
 
     // ------ ANWSER
     return res.status(201).json({ message: 'User Register Successfully', user: newUser.rows[0]});

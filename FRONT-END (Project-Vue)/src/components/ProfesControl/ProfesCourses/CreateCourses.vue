@@ -34,7 +34,7 @@
               <option v-for="prof in profesors" :key="prof.user_id" :value="prof.email">{{ prof.name}} ({{prof.email}})</option>
             </select>
 
-            <button type="submit" class="button" @click = "createCourse">Create Curse</button>
+            <button type="submit" class="classes__category-button" @click = "createCourse">Create Curse</button>
 
             <p v-if= "errorMsg" class="error"> {{errorMsg }} </p>
             <p v-if= "successMsg" class="success"> {{successMsg }} </p>
@@ -118,7 +118,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 40px;
   width: 100%;
   max-width: 500px;
   padding: 30px 20px;
@@ -187,46 +187,13 @@ input::placeholder{
 }
 
 
-.button{
-    position:relative;
-
+.classes__category-button{
     top:20px;
     width: 100%;
-    padding: 10px 40px;
-    color: #fff;
     background-color: #112240;   
     letter-spacing: 1px; 
-    margin :auto;
-    margin-bottom: 20px;
     z-index: 10;
     font-weight: bold;
-    
-
-    border: 1px solid #44e; 
-    border-radius: 6px;  
-    overflow: hidden;
 }
-
-.button::before{
-    content: '';
-    background-color:  #d15959;
-    display: block;
-    height: 300%;
-    width: 140%;
-    position:absolute;
-    z-index: -1;
-    margin-top: 30%;
-    transition: top .6s, left .6s;
-    border-radius: 50%;
-    top: 100%;
-    left: 30%;
-} 
-.button:hover::before{
-    top:-35%;
-    left: -20%;
-    margin-top: -10%;
-}
-
-
 
 </style>
